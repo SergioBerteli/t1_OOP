@@ -2,13 +2,11 @@ template <typename TIPO> struct ElementoListaDE {
   TIPO dado;
   ElementoListaDE<TIPO> *anterior;
   ElementoListaDE<TIPO> *proximo;
+  ElementoListaDE(TIPO d) : dado(d), proximo(nullptr), anterior(nullptr){}
 };
 
 template <typename TIPO> ElementoListaDE<TIPO> *novoelementoDE(TIPO dado) {
-  ElementoListaDE<TIPO> *novo = new ElementoListaDE<TIPO>;
-  novo->dado = dado;
-  novo->proximo = nullptr;
-  novo->anterior = nullptr;
+  ElementoListaDE<TIPO> *novo = new ElementoListaDE<TIPO>(dado);
   return novo;
 }
 
@@ -145,11 +143,4 @@ template <typename TIPO> struct ListaDE {
     }
   }
 
-  void imprime() {
-    ElementoListaDE<TIPO> nav = inicio;
-    while (nav != nullptr) {
-      cout << endl << nav.dado;
-      nav = nav->proximo;
-    }
-  }
 };
