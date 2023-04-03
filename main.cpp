@@ -11,7 +11,7 @@ int main(int argc, char const *argv[])
     int opcao, user_opcao, menu_usuario, opcao_deleta;
     long long int cpf;
     float dinheiro;
-    string sexo, nome, cargo, turno;
+    string sexo, nome, cargo, turno, pet_raca, pet_nome;
     PetShop t1("T1", "16.925.208/0001-51");
     Cliente * user_cliente;
     Funcionario * user_funcionario;
@@ -60,13 +60,13 @@ int main(int argc, char const *argv[])
                 t1.imprime_funcionarios();
                 system("pause");
                 break;
-            case 4:
+            case 4: // Menu cliente
                 cout<<"Escolha um cliente: "<<"\n\n"; //mostra as opções de funcionarios
                 t1.enumera_clientes();
                 cin>>user_opcao;
 
                 if (user_opcao >= t1.get_n_clientes() or user_opcao < 0) {
-                    cout<<"Numero invalido!";
+                    cout<<"Numero invalido!"<<endl;
                     break;
                 }
 
@@ -75,10 +75,19 @@ int main(int argc, char const *argv[])
                 do
                 {
                     cout << "O saldo atual de "<<user_cliente->get_nome() <<" e de R$"<<user_cliente->get_dinheiro()<<"."<< endl;
+                    cout << "1 - Adicionar um pet" << endl;
                     cout << "0 - Voltar ao menu do PetShop" << endl;
                     cin>>menu_usuario;
                     switch (menu_usuario)
                     {
+                    case 1:
+                        cout<<"Insira a raca do pet: ";
+                        cin>>pet_raca;
+                        cout<<"Insira o nome do pet: ";
+                        cin>>pet_nome;
+                        // modificar o cliente e exclui-lo!-
+                        break;
+
                     case 0:
                         /* code */
                         break;
